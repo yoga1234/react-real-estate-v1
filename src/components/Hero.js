@@ -21,9 +21,29 @@ const HeroWrapper = styled.div`
   position: relative;
 `;
 
-const HeroSlide = styled.div``;
-const HeroSlider = styled.div``;
-const HeroImage = styled.img``;
+const HeroSlide = styled.div`
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+`;
+const HeroSlider = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+const HeroImage = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+`;
 const HeroContent = styled.div``;
 const Arrow = styled(IoMdArrowRoundForward)``;
 
@@ -33,7 +53,7 @@ const SliderButtons = styled.div`
   right: 50px;
   display: flex;
   z-index: 10;
-`
+`;
 
 const arrowButtons = css`
   width: 50px;
@@ -55,10 +75,10 @@ const arrowButtons = css`
 
 const PrevArrow = styled(IoArrowBack)`
   ${arrowButtons}
-`
+`;
 const NextArrow = styled(IoArrowForward)`
   ${arrowButtons}
-`
+`;
 
 const Hero = ({ slides }) => {
   return (
@@ -68,7 +88,7 @@ const Hero = ({ slides }) => {
           return (
             <HeroSlide key={index}>
               <HeroSlider>
-                <HeroImage />
+                <HeroImage src={slide.image} alt={slide.alt} />
                 <HeroContent>
                   <h1>{slide.title}</h1>
                   <p>{slide.price}</p>
